@@ -1,0 +1,28 @@
+{
+  "name": "seasonsking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/jonathanfernandezfm/seasonsking.git"
+  },
+  "author": "Jonathan Fernández",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/jonathanfernandezfm/seasonsking/issues"
+  },
+  "homepage": "https://gitlab.com/jonathanfernandezfm/seasonsking#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25",
+    "morgan": "^1.10.0"
+  }
+}
