@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     removeFollow: function(req, res, next) {
-        followModel.findOneAndDelete({ _user: req.body.user, _serie: req.body.serie}, function(err, followInfo){
+        followModel.findOneAndDelete({ _user: req.body.userId, _serie: req.params.serie}, function(err, followInfo){
             if(err)
                 next(err);
             else {
@@ -21,7 +21,7 @@ module.exports = {
         });  
     },
     updateFollow: function(req, res, next) {
-        followModel.findOneAndUpdate({ _user: req.body.user, _serie: req.body.serie}, { favourite: req.body.favourite, rating: req.body.rating, notification: req.body.notification, seen_finished: req.body.seen_finished }, function(err, followInfo){
+        followModel.findOneAndUpdate({ _user: req.body.userId, _serie: req.params.serie}, { favourite: req.body.favourite, rating: req.body.rating, notification: req.body.notification, seen_finished: req.body.seen_finished }, function(err, followInfo){
             if(err)
                 next(err);
             else {
@@ -30,7 +30,7 @@ module.exports = {
         }); 
     },
     getFollow: function(req, res, next) {
-        followModel.findOne({ _user: req.body.userId, _serie: req.body.serie}, function(err, followInfo){
+        followModel.findOne({ _user: req.body.userId, _serie: req.params.serie}, function(err, followInfo){
             if(err)
                 next(err);
             if(!followInfo)

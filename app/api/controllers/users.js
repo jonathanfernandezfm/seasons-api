@@ -8,14 +8,13 @@ const jwt = require('jsonwebtoken');
 // Codificamos las operaciones que se podran realizar con relacion a los usuarios
 module.exports = {
     create: function(req, res, next) {
-        userModel.create({ name: req.body.name, email: req.body.email, password: req.body.password }, function (err, result) {
+        userModel.create({ name: req.body.name, email: req.body.email, password: req.body.password, language: req.body.language }, function (err, result) {
             if (err) 
                 next(err);
             else
                 res.json({status: "Ok", message: "User added successfully", data: null});
         });
     },
-
     authenticate: function(req, res, next) {
         const {email, password} = req.body;
 
@@ -37,5 +36,15 @@ module.exports = {
         } else {
             next(new Error("Invalid email/password"))
         }
+    },
+    changeLanguage: function(req, res, next) {
+        console.log(req.body)
+        userModel.findOneAndUpdate({_id: req.body.userId}, {language: req.body.language}, function(err, userInfo){
+            if(err)
+                next(err);
+            else {
+                res.json({status:"OK", message: "User updated successfully"});
+            }
+        });
     }
 }

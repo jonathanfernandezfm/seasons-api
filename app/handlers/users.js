@@ -10,7 +10,6 @@ function validateUser(req, res, next) {
         if (err) {
             res.status(401).json({status:"401", reason: "Unauthorized access", message: "User token not found"});
         }else{
-            // add user id to request
             req.body.userId = decoded.id;
             next();
         }

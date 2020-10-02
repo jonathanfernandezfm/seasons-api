@@ -23,6 +23,12 @@ const UserSchema = new Schema({
         type: String,
         trim: true,
         required: true
+    },
+    language: {
+        type: String,
+        trim: true,
+        require: false,
+        default: 'en'
     }
 });
 
